@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette Verte</title>
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+  background:url('background.png') no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+}
+
+a{ text-decoration:none; color:white; }
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(34,85,34,0.95);
+  padding:20px 40px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.header-left{display:flex;align-items:center;gap:20px;}
+.header-left img{height:80px;}
+.header-left h1{margin:0;font-size:3rem;}
+
+.header-right{
+  text-align:right;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.header-right button{
+  background:#5b9e5b;
+  border:none;
+  padding:8px 15px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.header-right button:hover{background:#488848;}
+
+/* MAIN */
+main{
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  gap:80px;
+}
+
+/* BIG DARK SECTIONS */
+section{
+  background:rgba(30,70,30,0.95);
+  padding:35px;
+  border-radius:12px;
+}
+
+section h2{
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+/* WHY SECTION */
+.why-boxes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.why-box{
+  flex:1;
+  min-width:220px;
+  background:rgba(50,120,50,0.9);
+  padding:20px;
+  border-radius:10px;
+}
+
+/* GALLERY BUTTON FLOATING */
+.gallery-btn{
+  display:block;
+  margin:0 auto;
+  background:#3e8e41;
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:8px;
+  font-size:1rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+.gallery-btn:hover{background:#367236;}
+
+/* GALLERY IMAGES */
+.gallery{
+  display:none;
+  margin-top:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+
+.gallery img{
+  width:220px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:10000;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+}
+.lightbox span{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:2rem;
+  cursor:pointer;
+}
+
+/* CONTACT SECTION */
+#contact-section{
+  display:none;
+  max-width:900px;
+  margin:0 auto;
+  background:rgba(50,120,50,0.9);
+  padding:40px;
+  border-radius:15px;
+}
+
+/* FORM ALIGNMENT CLEAN */
+#contact-section form{
+  display:flex;
+  flex-direction:column;
+}
+
+#contact-section label{
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+#contact-section input,
+#contact-section textarea{
+  width:100%;
+  max-width:500px;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  font-size:1rem;
+  margin-bottom:15px;
+}
+
+#contact-section button{
+  background:#3e8e41;
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+#contact-section button:hover{background:#367236;}
+
+/* FOOTER */
+footer{
+  background:rgba(34,85,34,0.95);
+  text-align:center;
+  padding:20px;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="logo.png">
+    <h1>Palette Verte</h1>
+  </div>
+
+  <div class="header-right">
+    <div>📞 514 601 1292</div>
+    <div>✉️ info@paletteverte.ca</div>
+    <div>📷 Instagram</div>
+    <button onclick="scrollToContact()">Contactez-nous</button>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <h2>À propos</h2>
+  <p>
+  Diplômé du Centre Horticole de Laval en aménagement paysager, Palette Verte
+  met son expertise au service de la création d’espaces extérieurs harmonieux
+  et durables. Chaque projet est pensé avec précision afin d’équilibrer
+  végétation, matériaux nobles et design contemporain.
+  </p>
+  <p>
+  Notre approche repose sur une planification rigoureuse, une sélection
+  intelligente des végétaux adaptés au climat québécois et une exécution
+  soignée. L’objectif : créer des aménagements qui traversent le temps
+  tout en respectant l’environnement et l’identité du lieu.
+  </p>
+</section>
+
+<section>
+  <h2>Pourquoi Palette Verte</h2>
+  <div class="why-boxes">
+    <div class="why-box">
+      <h3>Pavé</h3>
+      <p>Installation de pavé uni durable et esthétique, assurant solidité,
+      drainage optimal et intégration parfaite à votre environnement.</p>
+    </div>
+    <div class="why-box">
+      <h3>Végétaux</h3>
+      <p>Sélection stratégique de plantes robustes et adaptées au climat,
+      favorisant un aménagement vivant et équilibré à long terme.</p>
+    </div>
+    <div class="why-box">
+      <h3>Bois</h3>
+      <p>Utilisation de bois de qualité pour terrasses et structures,
+      apportant chaleur naturelle et élégance intemporelle.</p>
+    </div>
+    <div class="why-box">
+      <h3>Design & Planification</h3>
+      <p>Conception réfléchie et planification détaillée permettant
+      une harmonie parfaite entre nature et structure.</p>
+    </div>
+  </div>
+</section>
+
+<button class="gallery-btn" onclick="toggleGallery()">Voir les projets</button>
+
+<div class="gallery" id="gallery">
+  <img src="PAR01.png">
+  <img src="PAR02.png">
+  <img src="PAR03.png">
+  <img src="PAR04.png">
+  <img src="PAR05.png">
+  <img src="PAR06.png">
+</div>
+
+<section id="contact-section">
+  <form action="https://formspree.io/f/xdalwngq" method="POST">
+
+    <label for="email">Votre email :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Votre numéro de téléphone :</label>
+    <input type="tel" id="phone" name="phone">
+
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Envoyer</button>
+
+  </form>
+</section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <span onclick="closeLightbox()">×</span>
+  <img id="lightbox-img">
+</div>
+
+<footer>
+Créer l’harmonie entre nature et structure
+</footer>
+
+<script>
+
+function scrollToContact(){
+  const contact=document.getElementById("contact-section");
+  contact.style.display="block";
+  contact.scrollIntoView({behavior:"smooth"});
+}
+
+function toggleGallery(){
+  const gallery=document.getElementById("gallery");
+  gallery.style.display=(gallery.style.display==="flex")?"none":"flex";
+}
+
+const images=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
+
+images.forEach(img=>{
+  img.addEventListener("click",()=>{
+    lightbox.style.display="flex";
+    lightboxImg.src=img.src;
+  });
+});
+
+function closeLightbox(){
+  lightbox.style.display="none";
+}
+
+</script>
+
+</body>
+</html>
