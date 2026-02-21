@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette Verte</title>
+<style>
+  /* GENERAL */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+  }
+
+  a { text-decoration: none; }
+
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(34, 85, 34, 0.95); /* Vert sombre */
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header-left img {
+    height: 80px;
+  }
+
+  .header-left h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #fff;
+  }
+
+  .header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .header-right p, .header-right a, .header-right button {
+    margin: 0.2rem 0;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .header-right button {
+    background-color: #5b9e5b;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .header-right button:hover {
+    background-color: #488848;
+  }
+
+  /* MAIN */
+  main {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  section {
+    background: rgba(214, 238, 214, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  /* WHY PALETTE VERTE */
+  .why-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .why-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .why-box {
+    flex: 1;
+    min-width: 220px;
+    background: rgba(50, 120, 50, 0.9);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  /* GALLERY */
+  .gallery-container {
+    text-align: center;
+  }
+
+  .gallery-btn {
+    background-color: #3e8e41;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+
+  .gallery-btn:hover { background-color: #367236; }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .gallery img {
+    width: 200px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .lightbox span {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* CONTACT FORM */
+  #contact-section {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(50,120,50,0.85);
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  #contact-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  #contact-section input, #contact-section textarea {
+    width: 100%;
+    max-width: 400px; /* Moins large que la boîte */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  #contact-section button {
+    background-color: #3e8e41;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  #contact-section button:hover { background-color: #367236; }
+
+  /* FOOTER */
+  footer {
+    width: 100%;
+    background: rgba(34, 85, 34, 0.95);
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    color: #fff;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="logo.png" alt="Logo Palette Verte">
+    <h1>Palette Verte</h1>
+  </div>
+  <div class="header-right">
+    <p>📞 514 601 1292</p>
+    <p>✉️ <a href="mailto:info@paletteverte.ca">info@paletteverte.ca</a></p>
+    <p>📷 <a href="https://www.instagram.com/palette.verte" target="_blank">Instagram</a></p>
+    <button onclick="scrollToContact()">Contactez-nous</button>
+  </div>
+</header>
+
+<main>
+  <!-- À propos -->
+  <section id="about">
+    <h2>À propos</h2>
+    <p>Diplômé du Centre Horticole de Laval avec un diplôme en aménagement paysager, je cumule trois saisons d’expérience et une passion débordante pour créer des espaces extérieurs harmonieux. Mon objectif est de combiner la nature et la structure pour transformer votre cour en un véritable lieu de rêve.</p>
+    <p>Professionnel, rapide et efficace, j’ai une connaissance approfondie de toutes les facettes de l’aménagement extérieur : pavé, bois, végétaux et béton. Je suis en mesure de répondre à tous vos besoins et de concrétiser vos projets, qu’ils soient simples ou complexes.</p>
+  </section>
+
+  <!-- Pourquoi Palette Verte -->
+  <section id="why">
+    <h2>Pourquoi Palette Verte</h2>
+    <div class="why-container">
+      <div class="why-boxes">
+        <div class="why-box">
+          <h3>Pavé</h3>
+          <ul>
+            <li>Réparation et pose de pavés</li>
+            <li>Chemins, murs, marches, stationnements</li>
+            <li>Tous types de travaux en pavé et béton</li>
+          </ul>
+        </div>
+        <div class="why-box">
+          <h3>Végétaux</h3>
+          <ul>
+            <li>Aménagement de plates-bandes et plantations</li>
+            <li>Systèmes d’irrigation et éclairage extérieur</li>
+            <li>Taille de haies de cèdres et entretien général</li>
+          </ul>
+        </div>
+        <div class="why-box">
+          <h3>Bois</h3>
+          <ul>
+            <li>Construction et entretien de decks, clôtures et pergolas</li>
+            <li>Création d’escaliers et structures en bois sur mesure</li>
+          </ul>
+        </div>
+        <div class="why-box">
+          <h3>Design & Planification</h3>
+          <ul>
+            <li>Conception de plans d’aménagement paysager complets</li>
+            <li>Réalisation de projets complexes, petits ou grands</li>
+            <li>Coordination de toutes les étapes pour un espace fonctionnel et esthétique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-container">
+    <button class="gallery-btn" onclick="toggleGallery()">Voir les projets</button>
+    <div class="gallery" id="gallery">
+      <img src="PAR01.png" alt="Projet 01">
+      <img src="PAR02.png" alt="Projet 02">
+      <img src="PAR03.png" alt="Projet 03">
+      <img src="PAR04.png" alt="Projet 04">
+      <img src="PAR05.png" alt="Projet 05">
+      <img src="PAR06.png" alt="Projet 06">
+      <img src="PAR07.png" alt="Projet 07">
+      <img src="PAR08.png" alt="Projet 08">
+      <img src="PAR09.png" alt="Projet 09">
+      <img src="PAR10.png" alt="Projet 10">
+      <img src="PAR11.png" alt="Projet 11">
+      <img src="PAR12.png" alt="Projet 12">
+      <img src="PAR13.png" alt="Projet 13">
+      <img src="PAR14.png" alt="Projet 14">
+      <img src="PAR15.png" alt="Projet 15">
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact-section">
+    <form action="https://formspree.io/f/xdalwngq" method="POST">
+      <label for="email">Votre email:</label>
+      <input type="email" name="email" id="email" required>
+      <label for="message">Message:</label>
+      <textarea name="message" id="message" rows="4" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span onclick="closeLightbox()">×</span>
+  <img id="lightbox-img" src="">
+</div>
+
+<footer>
+  Créer l’harmonie entre nature et structure
+</footer>
+
+<script>
+  // Scroll to Contact
+  function scrollToContact() {
+    const contact = document.getElementById('contact-section');
+    contact.style.display = 'block';
+    contact.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Gallery toggle
+  function toggleGallery() {
+    const gallery = document.getElementById('gallery');
+    gallery.style.display = (gallery.style.display === 'flex') ? 'none' : 'flex';
+    if(gallery.style.display === 'flex') {
+      gallery.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Lightbox
+  const images = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
